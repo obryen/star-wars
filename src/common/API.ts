@@ -1,3 +1,3 @@
 export const swapi = {
-  main: 'https://swapi.dev',
+  main: 'https://swapi.dev/api',
 };
