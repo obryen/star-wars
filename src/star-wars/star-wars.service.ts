@@ -1,18 +1,28 @@
-import { HttpService, Injectable } from '@nestjs/common';
+import { HttpService, Injectable, Logger } from '@nestjs/common';
+import * as Util from 'util';
 import { PeopleModel } from './models/people';
+import { swapi } from '../../src/common/API';
 
 @Injectable()
 export class StarWarsService {
   constructor(private readonly httpService: HttpService) {}
-  mainUrl = `Https://swapi.dev/api`;
-  peopleURL = `${this.mainUrl}/people`;
+
+  peopleURL = `${swapi}/people`;
 
   async fetchAllPeople(page?: number): Promise<PeopleModel[]> {
-    const response = await this.httpService
-      .get(`${this.peopleURL}?page=${page}`)
-      .toPromise();
+    try {
+      const response = await this.httpService
+        .get(`${this.peopleURL}?page=${page}`)
+        .toPromise();
 
-    return response.data;
+      return response.data;
+    } catch (error) {
+      Logger.error(
+        `Something went wrong while making network request, possible issue: `,
+        Util.inspect(error),
+      );
+      return null;
+    }
   }
 
   async fetchOnePerson(name: string): Promise<PeopleModel> {
