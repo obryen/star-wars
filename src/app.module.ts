@@ -5,7 +5,9 @@ import { AppService } from './app.service';
 import { StarWarsModule } from './star-wars/star-wars.module';
 
 @Module({
-  imports: [StarWarsModule, GraphQLModule.forRoot({})],
+  imports: [StarWarsModule,
+    // GraphQLModule.forRoot({})
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
