@@ -1,5 +1,6 @@
-import { Field } from '@nestjs/graphql';
+import { Field, ObjectType } from '@nestjs/graphql';
 
+@ObjectType()
 export class FilmsModel {
   @Field()
   title: string;
@@ -11,22 +12,22 @@ export class FilmsModel {
   director: string;
   @Field()
   producer: string;
-  @Field()
-  release_date: string;
-  @Field()
-  characters: string[];
-  @Field()
-  planets: string[];
-  @Field()
-  starships: string[];
-  @Field()
-  vehicles: string[];
-  @Field()
-  species: string[];
-  @Field()
-  created: Date;
-  @Field()
-  edited: Date;
+  // @Field()
+  // release_date: string;
+  // @Field((type) => [ObjectType], { nullable: true })
+  // characters: string[];
+  // @Field((type) => [ObjectType], { nullable: true })
+  // planets: string[];
+  // @Field()
+  // starships: string[];
+  // @Field()
+  // vehicles: string[];
+  // @Field()
+  // species: string[];
+  // @Field()
+  // created: Date;
+  // @Field()
+  // edited: Date;
   @Field()
   url: string;
 }

@@ -1,6 +1,7 @@
 import { ObjectType, Field } from '@nestjs/graphql';
 import { FilmsModel as Film } from './films';
 
+@ObjectType()
 export class HomeWorldModel {
   @Field()
   name: string;
@@ -20,8 +21,8 @@ export class HomeWorldModel {
   surface_water: string;
   @Field()
   population: string;
-  @Field()
-  residents: string[];
+  // @Field()
+  // residents: string[];
   @Field((type) => [Film], { nullable: true })
   films: Film[];
   @Field()

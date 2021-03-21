@@ -1,8 +1,10 @@
 import { ObjectType, Field } from '@nestjs/graphql';
+import { FilmsModel } from './films';
 import { HomeWorldModel } from './homeworld';
 
+@ObjectType()
 export class PeopleModel {
-  @Field()
+  @Field({ nullable: true })
   name: string;
   @Field()
   height: string;
@@ -20,14 +22,14 @@ export class PeopleModel {
   gender: string;
   @Field((type) => HomeWorldModel, { nullable: true })
   homeworld: HomeWorldModel;
-  @Field()
-  films: string[];
-  @Field()
-  species: any[];
-  @Field()
-  vehicles: string[];
-  @Field()
-  starships: string[];
+  @Field((type) => FilmsModel, { nullable: true })
+  films: FilmsModel[];
+  // @Field()
+  // species: any[];
+  // @Field()
+  // vehicles: string[];
+  // @Field()
+  // starships: string[];
   @Field()
   created: Date;
   @Field()
