@@ -25,11 +25,18 @@ export class StarWarsService {
     }
   }
 
-  async fetchOnePerson(name: string): Promise<PeopleModel> {
-    const response = await this.httpService
-      .get(`${this.peopleURL}/?search=${name}`)
-      .toPromise();
+  async fetchOnePerson(name: string): Promise<PeopleModel[]> {
+    try {
+      const response = await this.httpService
+        .get(`${this.peopleURL}/?search=${name}`)
+        .toPromise();
 
-    return response.data.results;
+      return response.data.results;
+    } catch (error) {
+      Logger.error(
+        `Something went wrong while making network request, possible issue: `,
+        Util.inspect(error),
+      );
+    }
   }
 }

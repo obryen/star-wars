@@ -15,7 +15,7 @@ export class StarWarsController {
   async getOnePerson(
     @Param('page') page: number,
     @Param('id') name: string,
-  ): Promise<PeopleModel> {
+  ): Promise<PeopleModel[]> {
     return await this.starwarsService.fetchOnePerson(name);
   }
 }

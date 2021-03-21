@@ -49,5 +49,6 @@ type PeopleModel {
 }
 
 type Query {
-  people: [PeopleModel!]
+  people(user: String!): [PeopleModel!]
+  person(name: String!): [PeopleModel!]
 }
