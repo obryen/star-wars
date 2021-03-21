@@ -1,5 +1,4 @@
-import { HttpService, Injectable, Logger } from '@nestjs/common';
-import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
+import { Args, Query, Resolver } from '@nestjs/graphql';
 import { PeopleModel } from './models/people';
 import { StarWarsService } from './star-wars.service';
 
