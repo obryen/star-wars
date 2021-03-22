@@ -1,8 +1,7 @@
 import { HttpModule, Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
-import { PassportModule } from '@nestjs/passport';
-import { ConfigModule } from 'src/common/configs/star-wars.module';
-import { jwtCredentials } from 'src/common/enviroment-vars';
+import { ConfigModule } from '../../src/common/configs/star-wars.module';
+import { jwtCredentials } from '../../src/common/enviroment-vars';
 import { AuthenticationService } from './services/authentication.service';
 import { PeopleResolver } from './resolvers/people.resolver';
 import { StarWarsController } from './star-wars.controller';

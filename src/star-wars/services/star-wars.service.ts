@@ -1,13 +1,13 @@
 import { HttpService, Injectable, Logger } from '@nestjs/common';
 import * as Util from 'util';
 import { PeopleModel } from '../models/people';
-import { swapi } from 'src/common/enviroment-vars';
+import { swapi } from '../../../src/common/enviroment-vars';
 import {
   ResDataInterface,
   ResponseInterface,
-} from 'src/common/response-interface';
+} from '../../../src/common/response-interface';
 import { HomeWorldModel } from '../models/homeworld';
-import { RedisService } from 'src/common/configs/redis.service';
+import { RedisService } from '../../../src/common/configs/redis.service';
 
 @Injectable()
 export class StarWarsService {
@@ -93,10 +93,5 @@ export class StarWarsService {
         Util.inspect(error),
       );
     }
-  }
-
-  async authenticateUser(userName:string){
-    // check if user is in session, return  token
-       // if user is not in session cache, sign new token , add to session,
   }
 }
