@@ -12,19 +12,19 @@ type FilmsModel {
 }
 
 type HomeWorldModel {
-  name: String!
-  rotation_period: String!
-  orbital_period: String!
-  diameter: String!
-  climate: String!
-  gravity: String!
-  terrain: String!
-  surface_water: String!
-  population: String!
+  name: String
+  rotation_period: String
+  orbital_period: String
+  diameter: String
+  climate: String
+  gravity: String
+  terrain: String
+  surface_water: String
+  population: String
   films: [FilmsModel!]
-  created: DateTime!
-  edited: DateTime!
-  url: String!
+  created: DateTime
+  edited: DateTime
+  url: String
 }
 
 """

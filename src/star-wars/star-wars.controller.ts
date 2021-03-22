@@ -6,7 +6,7 @@ import { StarWarsService } from './star-wars.service';
 export class StarWarsController {
   constructor(private readonly starwarsService: StarWarsService) {}
 
-  @Get()
+  @Get(':page/route')
   async getAllPeeps(@Param('page') page: number): Promise<PeopleModel[]> {
     return await this.starwarsService.fetchAllPeople(page);
   }

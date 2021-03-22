@@ -97,7 +97,6 @@ export class StarWarsService {
 
   async authenticateUser(userName:string){
     // check if user is in session, return  token
-
-    // if user is not in session cache, sign new token , add to session,
+       // if user is not in session cache, sign new token , add to session,
   }
 }
