@@ -3,6 +3,11 @@ import { FilmsModel as Film } from './films';
 
 @ObjectType()
 export class HomeWorldModel {
+  constructor(intialData: Partial<HomeWorldModel> = null) {
+    if (intialData !== null) {
+      Object.assign(this, intialData);
+    }
+  }
   @Field({ nullable: true })
   name: string;
   @Field({ nullable: true })

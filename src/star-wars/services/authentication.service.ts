@@ -1,5 +1,5 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { RedisService } from 'src/common/configs/redis.service';
+import { RedisService } from '../../../src/common/configs/redis.service';
 import { JwtService } from '@nestjs/jwt';
 import { TokenModel } from '../models/token';
 
@@ -19,8 +19,8 @@ export class AuthenticationService {
         name: userName,
       };
       const newToken = this.jwtService.sign(tosign);
-      await this.redisService.set(userName, newToken);
-      return { name: userName, token };
+      await this.redisService.set(newToken, userName);
+      return { name: userName, token: newToken };
     }
 
     return { name: userName, token };

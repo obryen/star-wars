@@ -2,6 +2,11 @@ import { Field, ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
 export class FilmsModel {
+  constructor(intialData: Partial<FilmsModel> = null) {
+    if (intialData !== null) {
+      Object.assign(this, intialData);
+    }
+  }
   @Field()
   title: string;
   @Field()
