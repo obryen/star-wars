@@ -36,7 +36,6 @@ export class RedisService {
 
   async createList(key: string, value: any[]) {
     const setArr = await this.client.rpush(key, value, (err, reply) => {
-      console.log(reply);
       if (err) {
         return false;
       }
@@ -104,10 +103,5 @@ export class RedisService {
   async updateValue(key: string, seconds: number) {
     const updateExpireAsync = util.promisify(this.client.set).bind(this.client);
     return await updateExpireAsync(key, seconds);
-  }
-
-  async deleteById(key: string): Promise<any> {
-    const deleteAsync = util.promisify(this.client.del).bind(this.client);
-    return await deleteAsync(key);
   }
 }
