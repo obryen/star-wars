@@ -1,6 +1,6 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { PeopleModel } from './models/people';
-import { StarWarsService } from './star-wars.service';
+import { StarWarsService } from './services/star-wars.service';
 
 @Controller('people')
 export class StarWarsController {

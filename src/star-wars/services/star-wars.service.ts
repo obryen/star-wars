@@ -1,12 +1,12 @@
 import { HttpService, Injectable, Logger } from '@nestjs/common';
 import * as Util from 'util';
-import { PeopleModel } from './models/people';
+import { PeopleModel } from '../models/people';
 import { swapi } from 'src/common/enviroment-vars';
 import {
   ResDataInterface,
   ResponseInterface,
 } from 'src/common/response-interface';
-import { HomeWorldModel } from './models/homeworld';
+import { HomeWorldModel } from '../models/homeworld';
 import { RedisService } from 'src/common/configs/redis.service';
 
 @Injectable()

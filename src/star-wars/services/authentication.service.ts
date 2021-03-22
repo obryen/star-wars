@@ -1,7 +1,7 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { RedisService } from 'src/common/configs/redis.service';
 import { JwtService } from '@nestjs/jwt';
-import { TokenModel } from './models/token';
+import { TokenModel } from '../models/token';
 
 @Injectable()
 export class AuthenticationService {

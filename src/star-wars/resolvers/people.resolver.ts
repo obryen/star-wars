@@ -1,9 +1,9 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { Token } from 'graphql';
-import { AuthenticationService } from './authentication.service';
-import { PeopleModel } from './models/people';
-import { TokenModel } from './models/token';
-import { StarWarsService } from './star-wars.service';
+import { AuthenticationService } from '../services/authentication.service';
+import { PeopleModel } from '../models/people';
+import { TokenModel } from '../models/token';
+import { StarWarsService } from '../services/star-wars.service';
 
 @Resolver(() => PeopleModel)
 export class PeopleResolver {
