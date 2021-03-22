@@ -3,32 +3,32 @@ import { FilmsModel as Film } from './films';
 
 @ObjectType()
 export class HomeWorldModel {
-  @Field()
+  @Field({ nullable: true })
   name: string;
-  @Field()
+  @Field({ nullable: true })
   rotation_period: string;
-  @Field()
+  @Field({ nullable: true })
   orbital_period: string;
-  @Field()
+  @Field({ nullable: true })
   diameter: string;
-  @Field()
+  @Field({ nullable: true })
   climate: string;
-  @Field()
+  @Field({ nullable: true })
   gravity: string;
-  @Field()
+  @Field({ nullable: true })
   terrain: string;
-  @Field()
+  @Field({ nullable: true })
   surface_water: string;
-  @Field()
+  @Field({ nullable: true })
   population: string;
   // @Field()
   // residents: string[];
   @Field((type) => [Film], { nullable: true })
   films: Film[];
-  @Field()
+  @Field({ nullable: true })
   created: Date;
-  @Field()
+  @Field({ nullable: true })
   edited: Date;
-  @Field()
+  @Field({ nullable: true })
   url: string;
 }
