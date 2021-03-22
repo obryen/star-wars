@@ -3,8 +3,9 @@ export const swapi = {
 };
 
 export const redisConfigs = {
-  host: '127.0.0.1',
-  port: '6380',
+  // host: '127.0.0.1',  --local
+  host: '3.139.2.178',
+  port: '6379',
 };
 
 export const jwtCredentials = {
