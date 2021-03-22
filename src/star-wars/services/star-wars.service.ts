@@ -86,7 +86,24 @@ export class StarWarsService {
         .toPromise();
       response.data;
 
-      return response.data ? response.data.results : [];
+      if (response.data && response.data.results.length) {
+        const resolvedPeopleWithHomes = await Promise.all(
+          response.data.results.map(async (person) => {
+            if (person.homeworld) {
+              const fetchedHomeWorld = await this.fetchPlanetByUrl(
+                person.homeworld,
+              );
+              person.homeworld = fetchedHomeWorld;
+
+              return person;
+            }
+          }),
+        );
+
+        return resolvedPeopleWithHomes;
+      }
+
+      return [];
     } catch (error) {
       Logger.error(
         `Something went wrong while making network request, possible issue: `,
