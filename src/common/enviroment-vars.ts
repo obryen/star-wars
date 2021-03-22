@@ -9,5 +9,5 @@ export const redisConfigs = {
 
 export const jwtCredentials = {
   hashingSecret: 'ABCDEIEF',
-  jwtTtl: '100000s',
+  jwtTtl: '100000',
 };

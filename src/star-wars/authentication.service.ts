@@ -1,6 +1,7 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { RedisService } from 'src/common/configs/redis.service';
 import { JwtService } from '@nestjs/jwt';
+import { TokenModel } from './models/token';
 
 @Injectable()
 export class AuthenticationService {
@@ -9,17 +10,20 @@ export class AuthenticationService {
     private readonly jwtService: JwtService,
   ) {}
 
-  async authenticateUser(userName: string) {
+  async authenticateUser(userName: string): Promise<TokenModel> {
     const token = await this.redisService.get(userName);
 
     // if user is not in session cache, sign new token , add to session,
-    if (!userName) {
-      const token = this.jwtService.sign(userName);
-      await this.redisService.set(userName, token);
-      return token;
+    if (!token) {
+      const tosign = {
+        name: userName,
+      };
+      const newToken = this.jwtService.sign(tosign);
+      await this.redisService.set(userName, newToken);
+      return { name: userName, token };
     }
 
-    return token;
+    return { name: userName, token };
   }
 
   async checkForValidToken(token: string) {

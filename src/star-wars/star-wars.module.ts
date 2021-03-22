@@ -14,7 +14,7 @@ import { StarWarsService } from './star-wars.service';
     ConfigModule,
     JwtModule.register({
       secret: jwtCredentials.hashingSecret,
-      signOptions: { expiresIn: jwtCredentials.jwtTtl },
+      signOptions: { expiresIn: Number(jwtCredentials.jwtTtl) },
     }),
   ],
   controllers: [StarWarsController],

@@ -48,7 +48,16 @@ type PeopleModel {
   url: String!
 }
 
+type TokenModel {
+  name: String
+  token: String!
+}
+
 type Query {
-  people(page_num: Float!): [PeopleModel!]
-  person(name: String!): [PeopleModel!]
+  people(page_num: Float!, token: String!): [PeopleModel!]
+  person(name: String!, token: String!): [PeopleModel!]
+}
+
+type Mutation {
+  getToken(user: String!): TokenModel!
 }
