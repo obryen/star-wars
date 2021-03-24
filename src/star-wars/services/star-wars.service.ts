@@ -38,12 +38,11 @@ export class StarWarsService {
     planet = await this.redisService.get(url);
     // ensure planets exist
     if (!planet) {
+          // fetch planet from redis
       return await this.refreshPlanetInCache(url);
     }
 
     return planet;
-
-    // fetch planet from redis
   }
 
   async fetchAllPeople(page?: number): Promise<PeopleModel[]> {
